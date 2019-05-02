@@ -54,24 +54,28 @@ class Scream extends Component {
 		const {
 			classes,
 			scream: { body, createAt, userImage, userHandle, likeCount, screamId, commentCount },
-			user: { authenticated }
+			user: { authenticated, credentials: {handle} }
 		} = this.props;
 		const likeButton = !authenticated ? (
 			<MyButton tip='like'>
-				{' '}
 				<Link to='/login'>
 					<FavoriteBorder color='primary' />
 				</Link>
 			</MyButton>
 		) : this.likedScream() ? (
 			<MyButton tip='Undo like' onClick={this.unlikeScream}>
-				<FavoriteIcon color='primary' />{' '}
+				<FavoriteIcon color='primary' />
 			</MyButton>
 		) : (
 			<MyButton tip='Like' onClick={this.likeScream}>
-				<FavoriteBorder color='primary' />{' '}
+				<FavoriteBorder color='primary' />
 			</MyButton>
 		);
+
+		const deleteButton = authenticated && userHandle === handle ?  (
+			<DeleteScream screamId={screamId}/>
+		) : null
+
 		return (
 			<Card className={classes.card}>
 				<CardMedia image={userImage} title='Profile image' className={classes.image} />
@@ -79,6 +83,7 @@ class Scream extends Component {
 					<Typography variant='h5' component={Link} to={`/users/${userHandle}`} color='primary'>
 						{userHandle}
 					</Typography>
+					{deleteButton}
 					<Typography variant='body2' color='textSecondary'>
 						{dayjs(createAt).fromNow()}
 					</Typography>

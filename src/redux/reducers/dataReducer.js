@@ -26,6 +26,8 @@ export default function(state = initialState, action) {
 			return {
 				...state
 			};
+		case DELETE_SCREAM: 
+			
 		default:
 			return state;
 	}
