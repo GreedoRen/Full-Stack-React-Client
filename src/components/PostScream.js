@@ -15,20 +15,22 @@ import CloseIcon from '@material-ui/icons/Close';
 
 // Redux stuff
 import { connect } from 'react-redux';
-import { postScream } from '../redux/actions/dataActions';
+import { postScream, clearErrors } from '../redux/actions/dataActions';
 
 const styles = (theme) => ({
 	...theme,
 	submitButton: {
-		position: 'relative'
+		position: 'relative',
+		float: 'right',
+		marginTop: 10
 	},
 	progressSpinner: {
 		position: 'absolute'
 	},
 	closeButton: {
 		position: 'absolute',
-		left: '90%',
-		top: '10%'
+		left: '91%',
+		top: '6%'
 	}
 });
 
@@ -46,12 +48,12 @@ class PostScream extends Component {
 			});
 		}
 		if (!nextProps.UI.errors && !nextProps.UI.loading) {
-			this.setState({ body: '' });
-			this.handleClose();
+			this.setState({ body: '', open: false, errors: {} });
 		}
 	}
 
 	handleClose = () => {
+		this.props.clearErrors();
 		this.setState({ open: false, errors: {} });
 	};
 
@@ -116,6 +118,7 @@ class PostScream extends Component {
 
 PostScream.propTypes = {
 	postScream: PropTypes.func.isRequired,
+	clearErrors: PropTypes.func.isRequired,
 	UI: PropTypes.object.isRequired
 };
 
@@ -123,4 +126,4 @@ const mapStateToProps = (state) => ({
 	UI: state.UI
 });
 
-export default connect(mapStateToProps, { postScream })(withStyles(styles)(PostScream));
+export default connect(mapStateToProps, { postScream, clearErrors })(withStyles(styles)(PostScream));
