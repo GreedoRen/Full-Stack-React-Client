@@ -100,11 +100,6 @@ class Profile extends Component {
 					<div className='image-wrapper'>
 						<img src={imageUrl} alt='profile' className='profile-image' />
 						<input type='file' id='imageInput' onChange={this.handleImageChange} hidden='hidden' />
-						{/* <Tooltip title='Edit profile picture' placement='top'>
-							<IconButton onClick={this.handleEditPicture} className='button'>
-								<EditIcon color='primary' />
-							</IconButton>
-						</Tooltip> */}
 						<MyButton tip='Edit profile picture' onClick={this.handleEditPicture} btnClassName='button'>
 							<EditIcon color='primary' />
 						</MyButton>
