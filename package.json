@@ -8,6 +8,7 @@
 		"axios": "^0.18.0",
 		"dayjs": "^1.8.13",
 		"jwt-decode": "^2.2.0",
+		"live-server": "^1.2.1",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
 		"react-redux": "^7.0.3",
@@ -26,8 +27,16 @@
 		"extends": "react-app"
 	},
 	"browserslist": {
-		"production": [ ">0.2%", "not dead", "not op_mini all" ],
-		"development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
 	},
 	"proxy": "https://us-central1-socialapp-9ecf5.cloudfunctions.net/api"
 }
