@@ -57,9 +57,7 @@ class Login extends Component {
 		const { errors } = this.state;
 		return (
 			<Grid container className={classes.form}>
-				<Grid item sm>
-					1
-				</Grid>
+				<Grid item sm />
 				<Grid item sm>
 					<img src={AppIcon} alt='alt2' className={classes.image} />
 					<Typography variant='h2' className={classes.pageTitle}>
@@ -110,9 +108,7 @@ class Login extends Component {
 						</small>
 					</form>
 				</Grid>
-				<Grid item sm>
-					3
-				</Grid>
+				<Grid item sm />
 			</Grid>
 		);
 	}
